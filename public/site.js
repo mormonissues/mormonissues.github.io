@@ -91,9 +91,9 @@ function updateUrlState(newTopic) {
   )
 }
 
-window.onhashchange = () => {
-  console.log('hash change');
+window.addEventListener('pop state', () => {
+  console.log('pop state');
   updatePage();
-}
+});
 
 updatePage();
