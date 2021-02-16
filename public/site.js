@@ -1,55 +1,83 @@
 topics = {
-  topic1: {
-    title: 'Title',
-    details: 'Details',
+  churchIsHarmful: {
+    title: 'The LDS Church is harmful',
+    details: "LGBTQ+ issues, racism, sexism, personal shaming and guilt, modesty and self-worth issues, judgemental mindset, attitute that the second coming is near so earth doesn't matter",
     responses: [
-      {
-        id: 'response1',
-        body: 'Response 1'
-      },
-      {
-        id: 'response2',
-        body: 'Response 2'
-      },
-      {
-        id: 'response3',
-        body: 'Response 3'
-      },
-      {
-        id: 'response4',
-        body: 'Response 4'
-      }
+      churchIsCharitable,
+      churchTeachesGoodValues,
+      churchHasStrongCommunity
     ]
   },
-  response4: {
-    title: '4',
-    details: 'Details',
+  churchIsNotCharitable: {
+    title: 'Humanitarian contributions from the church',
+    details: "Humanitarian contributions from the church only make up about 1% of all that they receive from tithing, while the rest goes to building expensive temples and growing their 100B ensign fund. If you gave 10% to a charity it would be much more effective.",
     responses: [
-      {
-        id: 'response1',
-        body: 'Response 1'
-      }
     ]
+  },
+  ensignFund: {
+    title: "Ensign fund",
+    details: "The church has $100B. If the church is saving for a rainy day, when is that day? Is the current pandemic not a good time to use that money to help people?"
+  },
+  churchTeachesHarmfulValues: {
+    title: 'Church does not teach good values to our kids',
+    body: 'The church definitely has some positives, such as their focus on music and education. But you can emphasize those things without the church as so many non-christian parents do. And the church also teaches lots of harmful values regarding self worth, self confidence, being judgemental, and others.'
+  },
+  community: {
+    title: 'The church is not the only place where you can find a community',
+    body: "The church is a great way to meet people and make friends. But those friendships often aren't very strong anyway because your only common interest is the church. Friendships made through sports leagues or other meetups would be much stronger because you would have more common interests. And if you do choose to continue going to church for the community, at least stop paying tithing or pay it to an actual charity instead."
+  }
+}
+
+responses = {
+  churchIsGood: {
+    body: "Even if the doctrine isn't true, the church still does a lot of good and is a positive force in the world",
+    rebuttal: 'churchIsHarmful'
+  },
+  churchIsCharitable: {
+    body: "The church donates X amount in humanitarian efforts every year",
+    rebuttal: 'churchIsNotCharitable'
+  },
+  ensignFundIsSmart: {
+    body: "The church is just being smart with their money and saving for a rainy day",
+    rebuttal: "ensignFund"
+  },
+  churchTeachesGoodValues: {
+    body: "The church teaches good values and is a good way to raise children",
+    rebuttal: "churchTeachesHarmfulValues"
+  },
+  churchHasStrongCommunity: {
+    body: "The church has a strong community",
+    rebuttal: "community"
   }
 }
 
 var title = document.querySelector('#topic-title');
 var details = document.querySelector('#topic-details');
 var responseContainer = document.querySelector('#response-container');
+var progress = [];
 
-var initialTopic = 'topic1';
+var initialTopic = 'churchIsHarmful';
 
 function buildResponses(newTopic) {
   responseContainer.innerHTML = '';
-  topics[newTopic].responses.forEach(response => {
+  topics[newTopic].responses.forEach(responseId => {
+    let response = responses[responseId];
     let cardBody = document.createElement('div');
     cardBody.innerHTML = response.body;
     cardBody.classList.add('card-body');
     cardBody.addEventListener('click', () => {
-      changeTopic(response.id);
+      progress.push({
+        type: 'response',
+        value: responseId
+      });
+      changeTopic(response.rebuttal);
     });
     cardBody.addEventListener('tap', () => {
-      changeTopic(response.id);
+      progress.push({
+        type: 'response',
+        value: responseId
+      });
+      changeTopic(response.rebuttal);
     });
 
     let card = document.createElement('div');
@@ -72,6 +100,11 @@ function changeTopic(newTopic) {
   details.innerHTML = topic.details;
 
   buildResponses(newTopic);
+
+  progress.push({
+    type: 'topic',
+    value: newTopic
+  });
 };
 
 changeTopic(initialTopic);
