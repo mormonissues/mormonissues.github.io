@@ -18,6 +18,7 @@ function buildResponses(newTopic) {
         value: responseId
       });
       changeTopic(response.rebuttal);
+      updateUrlState(response.rebuttal);
     });
     cardBody.addEventListener('tap', () => {
       progress.push({
@@ -25,6 +26,7 @@ function buildResponses(newTopic) {
         value: responseId
       });
       changeTopic(response.rebuttal);
+      updateUrlState(response.rebuttal);
     });
 
     let card = document.createElement('div');
