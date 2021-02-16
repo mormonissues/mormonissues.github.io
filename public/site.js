@@ -1,7 +1,7 @@
 topics = {
   bookOfMormon: {
     title: 'The Book of mormon was plagiarized',
-    body: '[Insert evidence here]',
+    details: '[Insert evidence here]',
     responses: [
       'churchIsGood'
     ]
@@ -123,9 +123,17 @@ function changeTopic(newTopic) {
   )
 };
 
-const topic = new URLSearchParams(window.location.search).get('topic');
-if (topic && topics[topic]) {
-  changeTopic(topic);
-} else {
-  changeTopic(initialTopic);
+function updatePage() {
+  const topic = new URLSearchParams(window.location.search).get('topic');
+  if (topic && topics[topic]) {
+    changeTopic(topic);
+  } else {
+    changeTopic(initialTopic);
+  }
 }
+
+window.onhashchange = () => {
+  updatePage();
+}
+
+updatePage();
