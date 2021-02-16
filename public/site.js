@@ -35,6 +35,8 @@ function buildResponses(newTopic) {
     let cardBody = document.createElement('div');
     cardBody.innerHTML = response.body;
     cardBody.classList.add('card-body');
+    cardBody.addEventListener('click', changeTopic(response.id));
+    cardBody.addEventListener('tap', changeTopic(response.id));
 
     let card = document.createElement('div');
     card.classList.add('card');
