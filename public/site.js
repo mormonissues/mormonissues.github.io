@@ -66,7 +66,7 @@ var details = document.querySelector('#topic-details');
 var responseContainer = document.querySelector('#response-container');
 var progress = [];
 
-var initialTopic = 'bookOfMormon';
+var defaultTopic = 'bookOfMormon';
 
 function buildResponses(newTopic) {
   responseContainer.innerHTML = '';
@@ -124,16 +124,19 @@ function changeTopic(newTopic) {
 };
 
 function updatePage() {
-  const topic = new URLSearchParams(window.location.search).get('topic');
-  if (topic && topics[topic]) {
-    changeTopic(topic);
-  } else {
-    changeTopic(initialTopic);
+  let topic = defaultTopic
+  const topicFromUrl = (new URLSearchParams(window.location.search)).get('topic');
+  if (topicFromUrl && topics[topicFromUrl]) {
+    topic = topicFromUrl
   }
+
+  changeTopic(topic);
+  // if (topicFromUrl)
+  // if (topicFromUrl !== topic && )
 }
 
-window.onhashchange = () => {
-  updatePage();
-}
+// window.onhashchange = () => {
+//   updatePage();
+// }
 
 updatePage();
