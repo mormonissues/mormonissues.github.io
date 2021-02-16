@@ -55,7 +55,7 @@ function changeTopic(newTopic) {
   title.innerHTML = topic.title;
   details.innerHTML = topic.details;
 
-  buildResonses(newTopic);
+  buildResponses(newTopic);
 };
 
 changeTopic(initialTopic);
