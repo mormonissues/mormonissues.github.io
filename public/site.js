@@ -91,8 +91,8 @@ function updateUrlState(newTopic) {
   )
 }
 
-window.addEventListener('pop state', () => {
-  console.log('pop state');
+window.addEventListener('popstate', () => {
+  console.log('popstate');
   updatePage();
 });
 
