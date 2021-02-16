@@ -38,6 +38,8 @@ function buildResponses(newTopic) {
 };
 
 function changeTopic(newTopic) {
+  console.log('change topic');
+
   if (!topics[newTopic]) {
     console.log("Selected topic does not exist");
     return;
@@ -52,6 +54,8 @@ function changeTopic(newTopic) {
 };
 
 function updatePage() {
+  console.log('update page');
+
   let topic = defaultTopic
   const topicFromUrl = (new URLSearchParams(window.location.search)).get('topic');
   if (topicFromUrl && topics[topicFromUrl]) {
@@ -74,6 +78,7 @@ function updatePage() {
 }
 
 function updateUrlState(newTopic) {
+  console.log('update url state');
   progress.push({
     type: 'topic',
     value: newTopic
@@ -87,6 +92,7 @@ function updateUrlState(newTopic) {
 }
 
 window.onhashchange = () => {
+  console.log('hash change');
   updatePage();
 }
 
