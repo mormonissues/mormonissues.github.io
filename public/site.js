@@ -3,23 +3,23 @@ topics = {
     title: 'The Book of mormon was plagiarized',
     body: '[Insert evidence here]',
     responses: [
-      churchIsGood
+      'churchIsGood'
     ]
   },
   churchIsHarmful: {
     title: 'The LDS Church is harmful',
     details: "LGBTQ+ issues, racism, sexism, personal shaming and guilt, modesty and self-worth issues, judgemental mindset, attitute that the second coming is near so earth doesn't matter",
     responses: [
-      churchIsCharitable,
-      churchTeachesGoodValues,
-      churchHasStrongCommunity
+      'churchIsCharitable',
+      'churchTeachesGoodValues',
+      'churchHasStrongCommunity'
     ]
   },
   churchIsNotCharitable: {
     title: 'Humanitarian contributions from the church',
     details: "Humanitarian contributions from the church only make up about 1% of all that they receive from tithing, while the rest goes to building expensive temples and growing their 100B ensign fund. If you gave 10% to a charity it would be much more effective.",
     responses: [
-      ensignFundIsSmart
+      'ensignFundIsSmart'
     ]
   },
   ensignFund: {
