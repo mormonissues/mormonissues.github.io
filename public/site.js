@@ -28,11 +28,13 @@ topics = {
   },
   churchTeachesHarmfulValues: {
     title: 'Church does not teach good values to our kids',
-    body: 'The church definitely has some positives, such as their focus on music and education. But you can emphasize those things without the church as so many non-christian parents do. And the church also teaches lots of harmful values regarding self worth, self confidence, being judgemental, and others.'
+    details: 'The church definitely has some positives, such as their focus on music and education. But you can emphasize those things without the church as so many non-christian parents do. And the church also teaches lots of harmful values regarding self worth, self confidence, being judgemental, and others.',
+    responses: []
   },
   community: {
     title: 'The church is not the only place where you can find a community',
-    body: "The church is a great way to meet people and make friends. But those friendships often aren't very strong anyway because your only common interest is the church. Friendships made through sports leagues or other meetups would be much stronger because you would have more common interests. And if you do choose to continue going to church for the community, at least stop paying tithing or pay it to an actual charity instead."
+    details: "The church is a great way to meet people and make friends. But those friendships often aren't very strong anyway because your only common interest is the church. Friendships made through sports leagues or other meetups would be much stronger because you would have more common interests. And if you do choose to continue going to church for the community, at least stop paying tithing or pay it to an actual charity instead.",
+    responses: []
   }
 }
 
@@ -64,7 +66,7 @@ var details = document.querySelector('#topic-details');
 var responseContainer = document.querySelector('#response-container');
 var progress = [];
 
-var initialTopic = 'churchIsHarmful';
+var initialTopic = 'bookOfMormon';
 
 function buildResponses(newTopic) {
   responseContainer.innerHTML = '';
