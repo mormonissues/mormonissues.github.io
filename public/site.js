@@ -130,13 +130,21 @@ function updatePage() {
     topic = topicFromUrl
   }
 
+  if (topicFromUrl === null && topic === defaultTopic) {
+    // No change necessary
+    return;
+  }
+
+  if (topic === topicFromUrl ) {
+    // No change necessary
+    return;
+  }
+
   changeTopic(topic);
-  // if (topicFromUrl)
-  // if (topicFromUrl !== topic && )
 }
 
-// window.onhashchange = () => {
-//   updatePage();
-// }
+window.onhashchange = () => {
+  updatePage();
+}
 
 updatePage();
