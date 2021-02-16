@@ -110,17 +110,6 @@ function changeTopic(newTopic) {
   details.innerHTML = topic.details;
 
   buildResponses(newTopic);
-
-  progress.push({
-    type: 'topic',
-    value: newTopic
-  });
-
-  window.history.pushState(
-    {topic: newTopic},
-    newTopic,
-    `?topic=${newTopic}`
-  )
 };
 
 function updatePage() {
@@ -129,6 +118,8 @@ function updatePage() {
   if (topicFromUrl && topics[topicFromUrl]) {
     topic = topicFromUrl
   }
+
+  changeTopic(topic);
 
   if (topicFromUrl === null && topic === defaultTopic) {
     // No change necessary
@@ -140,7 +131,20 @@ function updatePage() {
     return;
   }
 
-  changeTopic(topic);
+  updateUrlState(topic);
+}
+
+function updateUrlState(newTopic) {
+  progress.push({
+    type: 'topic',
+    value: newTopic
+  });
+
+  window.history.pushState(
+    {topic: newTopic},
+    newTopic,
+    `?topic=${newTopic}`
+  )
 }
 
 window.onhashchange = () => {
