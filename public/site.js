@@ -32,14 +32,14 @@ var initialTopic = 'topic1';
 function buildResponses(newTopic) {
   responseContainer.innerHTML = '';
   topics[newTopic].responses.forEach(response => {
-    let card = document.createElement('div');
-    card.innerHTML = response.body;
-    card.classList.add('card-body');
+    let cardBody = document.createElement('div');
+    cardBody.innerHTML = response.body;
+    cardBody.classList.add('card-body');
 
-    let cardContainer = document.createElement('div');
-    cardContainer.classList.add('card');
-    cardContainer.classList.add('response');
-    cardContainer.appendChild(card);
+    let card = document.createElement('div');
+    card.classList.add('card');
+    card.classList.add('response');
+    card.appendChild(cardBody);
     responseContainer.appendChild(card);
   });
 };
