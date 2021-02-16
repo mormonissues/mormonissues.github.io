@@ -44,7 +44,7 @@ function buildResponses(newTopic) {
   });
 };
 
-function changeToptic(newTopic) {
+function changeTopic(newTopic) {
   if (!topics[newTopic]) {
     console.log("Selected topic does not exist");
     return;
